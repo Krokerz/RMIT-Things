@@ -1,0 +1,85 @@
+/* External CSS style file */
+
+* {
+   box-sizing: border-box;
+}
+
+body {
+   font-family: Arial;
+   padding: 10px;
+   background: orange;
+}
+
+/* Header (div) formatting */
+.header {
+   padding: 10px;
+   text-align: left;
+   background-color: purple;
+}
+
+.header h1 {
+   font-size: 100px;
+   font-family: 'Gill Sans';
+   color: cyan;
+   font-style: italic;
+   border-style: solid;
+}
+
+/* Content (div) formatting */
+/* TODO */
+.content h2 {
+   color: greenyellow;
+   font-size: 80px;
+   font-family: 'Times New Roman';
+   font-weight: bold;
+   text-decoration: underline;
+   /* noticed that the font, size, style, and color of the text in h1 and h2 changed according to my specificaitons */
+   /* it changed both headers because they are both classified into the content class div and into the h2 tag */
+   /* No because the changed h1 tag is in the content class div, which does not have any property changes for the h1 tag */
+   /* to differentiate between different parts or sections of the webpage to make for easier and more specific stylings */
+   /* they differ because an id selector can only be used on one element on the webpage, while a class selector can be used on multiple elements on the webpage. Id selectors are used to select and style a single specific element on the webpage that is unique to every other element on the webpage, while class selectors are used to select and style multiple elements on the webpage that is intended to have the same style */
+}
+
+.content ul {
+   list-style: georgian;
+   background-color: blueviolet;
+   background-image: url("RMIT_img.png");
+}
+
+.content li {
+   color: white;
+   font-style: italic;
+   font-family: 'Cambria';
+}
+
+/* Comparison table formatting */
+.compare table {
+   width:100%;
+}
+
+.compare table, th, td {
+   border: 1px solid black;
+ }
+
+.compare th, td {
+   padding: 15px;
+ }
+
+.para p {
+   font-family: 'Segoe UI';
+   font-size: medium;
+}
+
+#index {
+   border-style: ridge;
+}
+
+#study {
+   border-style: dotted;
+}
+
+/* Make the logo have a rounded edge */
+img.top-image {
+   border-radius: 50%;
+   vertical-align: middle;
+}
