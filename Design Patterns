@@ -1,0 +1,59 @@
+Navigation Design Patterns
+ 
+common types of navigational models:
+    Hub and spoke
+    Fully Connected
+    Multi-level
+    Clear entry points
+    Escape Hatch
+
+Types of navigation design patterns that may be used are:
+    Menu Page
+    Pyramid
+    Modal panel
+    Escape hatch / Home Link
+    Fat Menu
+    Navigation Tabs
+    Sitemap footer
+    Signposting
+    Sequence map
+    Breadcrumbs
+    Pagination
+    Carousel
+    Tagging
+    etc.
+
+Page Layout Design Patterns
+
+common types of page layout patterns such as models:
+    Visual hierarchy
+    Upper-left corner
+    Whitespace
+    Contrasting fonts: bold, large size
+    Contrasting foreground and background
+    Spatial positioning: indenting, margins
+    Graphics
+    Visual ﬂow
+    Visual framework
+    Center stage
+    Right/left alignment
+    Diagonal balance
+    Closable panels
+    Moveable panels
+    Dynamic layout patterns
+
+Interaction Design Patterns
+
+common types of page layout patterns such as models:
+    Presenting action patterns
+    Button groups
+    Action panel
+    Highlighting action patterns
+    Prominent “Done” button
+    Smart menu item
+    Time consuming patterns
+    Preview
+    Progress indicator
+    Cancelability
+    Action sequence patterns
+    Multi-level undo
