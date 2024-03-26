@@ -1,5 +1,4 @@
 #include <iostream>
-#include <algorithm>
 
 class Maze {
     private:
@@ -10,7 +9,7 @@ class Maze {
         Maze();
         ~Maze();
         Maze(const Maze &);
-        Maze& operator=(Maze);
+        Maze& operator=(const Maze &);
 
         void getSize() const;
         void readMazeFromTerminal();
@@ -41,10 +40,27 @@ Maze::Maze(const Maze &maze) : rows(maze.rows), cols(maze.cols) {
     }
 }
 
-Maze& Maze::operator=(Maze other) {
-    std::swap(env, other.env);
-    std::swap(rows, other.rows);
-    std::swap(cols, other.cols);
+Maze& Maze::operator=(const Maze &other) {
+    for (int i = 0; i < rows; i++) {
+        delete[] *(env + i);
+    }
+    
+    delete[] env;
+
+    rows = other.rows;
+    cols = other.cols;
+
+    env = new char*[other.rows];
+
+    for (int i = 0; i < other.rows; i++) {
+        char *temp = new char[other.cols];
+
+        for (int j = 0; j < other.cols; j++) {
+            *(temp + j) = *(*(other.env + i) + j);
+        }
+
+        *(env + i) = temp;
+    }
 
     return *this;
 }
