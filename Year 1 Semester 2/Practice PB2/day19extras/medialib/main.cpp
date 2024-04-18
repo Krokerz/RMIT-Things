@@ -2,52 +2,19 @@
 #include <string>
 #include <vector>
 
-class Library {
-    private:
-        std::vector<Media*> media;
-
-    public:
-        Library();
-        ~Library();
-        void addMedia(Media*);
-        void searchMedia(std::string);
-        friend std::ostream & operator<<(std::ostream&, Library&);
-
-};
-
-Library::Library() {}
-
-Library::~Library() {
-    // do something here
-}
-
-// Printing the right book becomes much simpler
-
-std::ostream & operator<<(std::ostream& os, Library& lib) {
-    for(auto m : lib.media) {
-        m->print(os);
-    }
-    return os;
-
-}
-
-void Library::addMedia(Media* media) {
-    // add the media to the vector
-    this->media.push_back(media);
-
-}
-
-// Same as above, but with a std::string for the title instead.
-
-void Library::searchMedia(std::string target) {
-    // your implementation here
-}
+#include "headers/Library.h"
+#include "headers/Media.h"
+#include "headers/Book.h"
+#include "headers/AudioBook.h"
+#include "headers/Movie.h"
+#include "headers/VideoGame.h"
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 int main() {
-
+    
     Library lib;
+    std::vector<std::string> searchQuery = {"Not Real", "Worm", "2018", "Denis Villeneuve", "Mobius Digital", "hghfkjvchyigou"};
 
     lib.addMedia(new Media("Not Real", "Never"));
     lib.addMedia(new Book("Worm", "2011", "UNKNOWN", "John C. McCrae"));
@@ -55,12 +22,12 @@ int main() {
     lib.addMedia(new Movie("Dune", "2021", "Denis Villeneuve", "4K IMAX"));
     lib.addMedia(new VideoGame("Outer Wilds", "2019", "Annapurna", "Mobius Digital"));
 
-    // std::cout << lib;
+    std::cout << lib << std::endl;
 
-    lib.searchMedia("Worm");
-    lib.searchMedia("2018");
-    lib.searchMedia("Denis Villeneuve");
-    lib.searchMedia("Mobius Digital");
+    for (std::string i : searchQuery) {
+        lib.searchMedia(i);
+        std::cout << std::endl;
+    }
 
     return EXIT_SUCCESS;
 
