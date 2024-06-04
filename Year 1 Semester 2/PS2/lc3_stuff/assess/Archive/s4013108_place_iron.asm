@@ -1,0 +1,18 @@
+.ORIG x3000
+TRAP 0x31
+
+ADD R0, R0, #3
+
+TRAP 0x35
+
+ADD R1, R1, #1
+
+LD R3, BLOCK
+
+TRAP 0x34
+
+HALT
+
+BLOCK .FILL #42
+
+.END

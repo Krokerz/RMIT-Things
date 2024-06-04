@@ -1,0 +1,34 @@
+.ORIG x3000
+TRAP 0x31
+
+ADD R1, R1, #-1
+
+ADD R0, R0, #1
+TRAP 0x33
+
+ADD R4, R4, R3
+
+ADD R0, R0, #1
+TRAP 0x33
+
+JSR XOR
+AND R3, R3, #0
+ADD R3, R3, R5
+
+TRAP 0x34
+
+HALT
+
+XOR
+    NOT R5, R3
+    AND R5, R5, R4
+    NOT R5, R5
+
+    NOT R6, R4
+    AND R6, R6, R3
+    NOT R6, R6
+
+    AND R5, R5, R6
+RET
+
+.END

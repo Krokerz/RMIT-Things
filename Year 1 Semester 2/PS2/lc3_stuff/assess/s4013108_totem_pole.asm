@@ -1,0 +1,29 @@
+.ORIG x3000
+TRAP 0x31
+
+ADD R2, R2, #3
+
+LD R5, HEIGHT
+
+TRAP 0x35
+
+ADD R3, R3, #2
+
+LOOP
+    ADD R5, R5, #-1
+    BRzp NOSTOP
+        BR STOP
+    NOSTOP
+
+    ADD R1, R1, #1
+    TRAP 0x34
+
+    ADD R3, R3, #1
+BR LOOP
+STOP
+
+HALT
+
+HEIGHT .FILL #4
+
+.END

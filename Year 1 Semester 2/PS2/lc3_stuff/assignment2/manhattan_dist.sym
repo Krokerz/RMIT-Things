@@ -1,0 +1,12 @@
+NOTNEG0                                                                    x3006
+NOTNEG1                                                                    x300C
+NOTNEG2                                                                    x3012
+ISNEG                                                                      x3019
+ISPOS                                                                      x301B
+INV                                                                        x301D
+INGOAL                                                                     x3020
+NOTGOAL                                                                    x3054
+G_X                                                                        x307A
+G_Y                                                                        x307B
+G_Z                                                                        x307C
+GOAL_DIST                                                                  x307D

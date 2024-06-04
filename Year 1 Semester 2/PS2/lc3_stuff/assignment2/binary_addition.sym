@@ -1,0 +1,7 @@
+SETUP                                                                      x300D
+READ                                                                       x3010
+RLOOP                                                                      x3011
+NOTSTONE                                                                   x3015
+WRITE                                                                      x3019
+WLOOP                                                                      x301A
+ISZERO                                                                     x301E

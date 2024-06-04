@@ -1,0 +1,75 @@
+.ORIG x3000
+TRAP 0x31
+
+LD R3, G_X
+JSR INV
+
+ADD R3, R0, R3
+BRzp NOTNEG0
+    JSR INV
+NOTNEG0
+JSR SQR
+
+ADD R4, R4, R3
+
+LD R3, G_Y
+JSR INV
+
+ADD R3, R1, R3
+BRzp NOTNEG1
+    JSR INV
+NOTNEG1
+JSR SQR
+
+ADD R4, R4, R3
+
+LD R3, G_Z
+JSR INV
+
+ADD R3, R2, R3
+BRzp NOTNEG2
+    JSR INV
+NOTNEG2
+JSR SQR
+
+ADD R4, R4, R3
+
+LD R3, GOAL_DIST
+JSR SQR
+JSR INV
+
+ADD R4, R4, R3
+BRzp NOTOUT
+    LEA R0, INGOAL
+NOTOUT
+BRn NOTIN
+    LEA R0, OUTGOAL
+NOTIN
+
+HALT
+
+INV
+    NOT R3, R3
+    ADD R3, R3, #1
+RET
+
+SQR
+    ADD R5, R5, R3
+
+    LOOP
+        ADD R6, R6, R3
+        ADD R5, R5, #-1
+    BRp LOOP
+
+    AND R5, R5, #0
+RET
+
+INGOAL .STRINGZ "The player is within distance of the goal"
+OUTGOAL .STRINGZ "The player is outside the goal bounds"
+
+G_X .FILL #3
+G_Y .FILL #4
+G_Z .FILL #5
+GOAL_DIST .FILL #6
+
+.END

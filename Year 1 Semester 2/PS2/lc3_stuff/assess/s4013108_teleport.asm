@@ -1,0 +1,32 @@
+.ORIG x3000
+TRAP 0x31
+
+NOT R2, R2
+ADD R2, R2, #1
+
+ADD R1, R1, R1
+
+JSR ABS
+
+ADD R5, R5, R0
+
+AND R0, R0, #0
+ADD R0, R0, R2
+
+AND R2, R2, #0
+ADD R2, R2, R5
+
+TRAP 0x32
+
+HALT
+
+ABS
+    ADD R0, R0, #0
+    BRzp ABS_NOTNEG
+        ;INV
+        NOT R0, R0
+        ADD R0, R0, #1
+    ABS_NOTNEG
+RET
+
+.END
