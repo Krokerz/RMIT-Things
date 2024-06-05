@@ -36,7 +36,7 @@ void SolveMaze::showEscapeRoute(std::vector<mcpp::Coordinate> &coordVect, mcpp::
 
         // TODO: Check if player is in the boundaries of the maze, and check if the player is in an empty space, also "base" is an mcpp::Coordinate object with the base point
         // TODO: Make this shorter by making a function in util
-        if (!((initialPos.x > (base.x + 1)) && (initialPos.z > (base.z + 1)) && (initialPos.x < (base.x + 1 + length)) && (initialPos.z < (base.z + 1 + width)))) {
+        if ((initialPos.x >= (base.x + 1)) && (initialPos.z >= (base.z + 1)) && (initialPos.x <= (base.x + 1 + length)) && (initialPos.z <= (base.z + 1 + width))) {
             bool isInEmpty = false;
 
             for (mcpp::Coordinate i : coordVect) {
