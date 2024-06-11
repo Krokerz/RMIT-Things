@@ -3,15 +3,7 @@
 
 #include <iostream>
 #include <memory>
-
-// template <typename T> class Node {
-//     private:
-//         T data;
-//         std::shared_ptr<Node<T>> next;
-//         std::shared_ptr<Node<T>> prev;
-
-//         friend class LinkedList;
-// };
+#include <stdexcept>
 
 template <typename T> class LinkedList {
     private:
@@ -19,17 +11,39 @@ template <typename T> class LinkedList {
             T data;
             std::shared_ptr<Node> next;
             std::shared_ptr<Node> prev;
-        };
+        }
 
         std::shared_ptr<Node> nodeHeadPtr;
-        // make currPtr?
-        int size;
+        unsigned int size;
         bool isCircular;
 
-        std::shared_ptr<Node> getNodePtr(int it);
-
     public:
+        class Iterator {
+            private:
+                friend class LinkedList;
+                
+                std::shared_ptr<Node> currPtr;
+
+            public:
+                Iterator();
+
+                ~Iterator();
+                
+                /** 
+                 * Increments Iterator by 1
+                 */
+                Iterator& operator++();
+
+                /**
+                 * Increments Iterator by an int
+                 * @param num
+                 */
+                Iterator& operator+=(int num);
+        };
+
         LinkedList();
+
+        ~LinkedList();
 
         /**
          * Pushes the data to the back of the list
@@ -54,14 +68,13 @@ template <typename T> class LinkedList {
         void popFront();
 
         /**
-         * Returns the data at the back of the list
+         * Returns the data at ta specified part of the list
+         * @throw 
+         * @return Data stored at that part of the list
          */
-        T getBack();
+        T getAt(Iterator iter);
 
-        /**
-         * Returns the data at the front of the list
-         */
-        T getFront();
+
 
         /**
          * Makes the list circular (the back of the list points to the front of the list)
