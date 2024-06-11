@@ -92,23 +92,6 @@ template <typename T> void LinkedList<T>::popFront() {
     }
 }
 
-template <typename T> Iterator LinkedList<T>::begin() {
-    return 
-}
-
-template <typename T> T LinkedList<T>::getAt(Iterator iter) {
-    T result = T();
-
-    if (size == 0) {
-        throw std::runtime_error("The list is empty!");
-    }
-    else {
-        result = 
-    }
-
-    return result;
-}
-
 template <typename T> void LinkedList<T>::makeCircular() {
     nodeHeadPtr->prev->next = nodeHeadPtr->next;
     nodeHeadPtr->next->prev = nodeHeadPtr->prev;

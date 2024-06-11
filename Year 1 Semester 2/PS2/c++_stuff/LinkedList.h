@@ -18,29 +18,6 @@ template <typename T> class LinkedList {
         bool isCircular;
 
     public:
-        class Iterator {
-            private:
-                friend class LinkedList;
-                
-                std::shared_ptr<Node> currPtr;
-
-            public:
-                Iterator();
-
-                ~Iterator();
-                
-                /** 
-                 * Increments Iterator by 1
-                 */
-                Iterator& operator++();
-
-                /**
-                 * Increments Iterator by an int
-                 * @param num
-                 */
-                Iterator& operator+=(int num);
-        };
-
         LinkedList();
 
         ~LinkedList();
@@ -66,13 +43,6 @@ template <typename T> class LinkedList {
          * Pops the data at the front of the list
          */
         void popFront();
-
-        /**
-         * Returns the data at ta specified part of the list
-         * @throw 
-         * @return Data stored at that part of the list
-         */
-        T getAt(Iterator iter);
 
 
 
