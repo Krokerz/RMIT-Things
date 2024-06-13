@@ -1,6 +1,45 @@
 #include "LinkedList.h"
 
-template <typename T> LinkedList<T>::LinkedList() : size(0) {
+template <typename T> LinkedList<T>::Iterator::Iterator(
+    const std::shared_ptr<Node> &ptr, const LinkedList<T> *list
+) {
+    currList = list;
+    currPtr = ptr;
+}
+
+template <typename T> LinkedList<T>::Iterator::Iterator(
+    const Iterator &iter
+) {
+    currList = iter.currList;
+    currPtr = iter.currPtr;
+}
+
+template <typename T> LinkedList<T>::Iterator::~Iterator() {}
+
+template <typename T>
+typename LinkedList<T>::Iterator& LinkedList<T>::Iterator::operator=(
+    const LinkedList<T>::Iterator &iter
+) {
+    currPtr = iter.currPtr;
+}
+
+template <typename T> void LinkedList<T>::Iterator::operator++() {
+    currPtr = currPtr->next;
+}
+
+template <typename T> void LinkedList<T>::Iterator::operator--() {
+    currPtr = currPtr->prev;
+}
+
+template <typename T> T LinkedList<T>::Iterator::getData() const {
+    if ((currPtr == nullptr) || (currPtr == currList->nodeHeadPtr)) {
+        throw std::runtime_error("The iterator is not pointing to anything!");
+    }
+
+    return currPtr->data;
+}
+
+template <typename T> LinkedList<T>::LinkedList() : size(0), isCircular(false) {
     nodeHeadPtr = std::make_shared<Node>();
 
     nodeHeadPtr->data = T();
@@ -67,7 +106,7 @@ template <typename T> void LinkedList<T>::pushFront(T data) {
 }
 
 template <typename T> void LinkedList<T>::popBack() {
-    if (!(size <= 0)) {
+    if (size > 0) {
         if (isCircular) {
             nodeHeadPtr->prev->next->prev = nodeHeadPtr->prev->prev;
         }
@@ -80,7 +119,7 @@ template <typename T> void LinkedList<T>::popBack() {
 }
 
 template <typename T> void LinkedList<T>::popFront() {
-    if (!(size <= 0)) {
+    if (size > 0) {
         if (isCircular) {
             nodeHeadPtr->next->prev->next = nodeHeadPtr->next->next;
         }
@@ -92,13 +131,56 @@ template <typename T> void LinkedList<T>::popFront() {
     }
 }
 
+template <typename T> typename LinkedList<T>::Iterator LinkedList<T>::begin() const {
+    return Iterator(nodeHeadPtr->next, this);
+}
+
+template <typename T> typename LinkedList<T>::Iterator LinkedList<T>::end() const {
+    return Iterator(nodeHeadPtr->prev, this);
+}
+
 template <typename T> void LinkedList<T>::makeCircular() {
     nodeHeadPtr->prev->next = nodeHeadPtr->next;
     nodeHeadPtr->next->prev = nodeHeadPtr->prev;
 
-
+    isCircular = true;
 }
 
 template <typename T> void LinkedList<T>::makeNormal() {
+    if (size > 0) {
+        nodeHeadPtr->prev->next = nullptr;
+        nodeHeadPtr->next->prev = nullptr;
+    }
 
+    isCircular = false;
+}
+
+template <typename T> unsigned int LinkedList<T>::getSize() const {
+    return size;
+}
+
+template <typename T> void LinkedList<T>::print() const {
+    std::shared_ptr<Node> temp = nodeHeadPtr->next;
+
+    for (int i = 0; i < size; i++) {
+        std::cout << temp->data;
+        std::cout << " | amount of pointers pointinng to it (including itself): ";
+        std::cout << temp.use_count();
+        std::cout << std::endl;
+
+        temp = temp->next;
+    }
+
+    std::cout << '(';
+
+    if (isCircular) {
+        std::cout << "circular";
+    }
+    else {
+        std::cout << "normal";
+    }
+
+    std::cout << ')' << std::endl;
+
+    std::cout << "size: " << size << std::endl;
 }
