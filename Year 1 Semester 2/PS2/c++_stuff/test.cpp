@@ -6,6 +6,9 @@ int main() {
 
     list.popBack();
     list.popFront();
+
+    list.print();
+
     list.pushBack(1);
     
     list.print();
@@ -59,12 +62,9 @@ int main() {
     for (int i = 0; i < list.getSize(); i++) {
         std::cout << iter.getData() << ' ';
 
-        iter.operator++();
+        ++iter;
     }
     std::cout << std::endl;
-
-    
-
 
     return EXIT_SUCCESS;
 }

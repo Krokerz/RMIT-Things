@@ -3,7 +3,7 @@
 template <typename T> LinkedList<T>::Iterator::Iterator(
     const std::shared_ptr<Node> &ptr, const LinkedList<T> *list
 ) {
-    currList = list;
+    currList = std::make_shared<LinkedList<T>>(*list);
     currPtr = ptr;
 }
 
@@ -106,7 +106,18 @@ template <typename T> void LinkedList<T>::pushFront(T data) {
 }
 
 template <typename T> void LinkedList<T>::popBack() {
-    if (size > 0) {
+    if (size == 1) {
+        if (isCircular) {
+            nodeHeadPtr->prev->prev = nullptr;
+            nodeHeadPtr->next->next = nullptr;
+        }
+
+        nodeHeadPtr->prev = nodeHeadPtr;
+        nodeHeadPtr->next = nodeHeadPtr;
+
+        size--;
+    }
+    else if (size > 0) {
         if (isCircular) {
             nodeHeadPtr->prev->next->prev = nodeHeadPtr->prev->prev;
         }
@@ -119,7 +130,18 @@ template <typename T> void LinkedList<T>::popBack() {
 }
 
 template <typename T> void LinkedList<T>::popFront() {
-    if (size > 0) {
+    if (size == 1) {
+        if (isCircular) {
+            nodeHeadPtr->next->next = nullptr;
+            nodeHeadPtr->prev->prev = nullptr;
+        }
+
+        nodeHeadPtr->next = nodeHeadPtr;
+        nodeHeadPtr->prev = nodeHeadPtr;
+
+        size--;
+    }
+    else if (size > 0) {
         if (isCircular) {
             nodeHeadPtr->next->prev->next = nodeHeadPtr->next->next;
         }
@@ -164,8 +186,8 @@ template <typename T> void LinkedList<T>::print() const {
 
     for (int i = 0; i < size; i++) {
         std::cout << temp->data;
-        std::cout << " | amount of pointers pointinng to it (including itself): ";
-        std::cout << temp.use_count();
+        std::cout << " | amount of pointers pointing to it: ";
+        std::cout << temp.use_count() - 1;
         std::cout << std::endl;
 
         temp = temp->next;
