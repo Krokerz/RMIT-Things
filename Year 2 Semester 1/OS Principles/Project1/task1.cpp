@@ -8,7 +8,7 @@
 std::string source = "";
 std::string dest = "";
 
-int argNumChecker(char *argv);
+int argNumChecker(char *arg);
 void* fileCopier(void *arg);
 
 int main(int argc, char** argv) {
