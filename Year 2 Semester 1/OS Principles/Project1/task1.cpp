@@ -15,6 +15,10 @@ int main(int argc, char** argv) {
     int numFiles = 0;
 
     try {
+        if (argc < 4) {
+            throw std::invalid_argument("Not enough arguments");
+        }
+        
         numFiles = argNumChecker(argv[1]);
     }
     catch (const std::exception &e) {
@@ -31,7 +35,7 @@ int main(int argc, char** argv) {
         nums.push_back(i);
     }
 
-    numFiles--; // To account for "fileCopier(&nums.at(numFiles));" after for loop
+    numFiles--; // To account for main thread
 
     std::vector<pthread_t> threads(numFiles);
 
@@ -68,7 +72,7 @@ int argNumChecker(char *arg) {
 void* fileCopier (void* arg) {
     std::string query = "cp ";
     query += source + "/source";
-    query += std::to_string(*(int*)arg);
+    query += std::to_string(*static_cast<int*>(arg));
     query += ".txt " + dest;
  
     // std::cout << query << std::endl;
