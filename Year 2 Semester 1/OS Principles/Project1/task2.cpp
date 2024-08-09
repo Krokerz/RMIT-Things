@@ -5,9 +5,14 @@
 #include <fstream>
 #include <pthread.h>
 
-std::string source = "";
-std::string dest = "";
-std::queue<std::string> queue = {};
+std::string source;
+std::string dest;
+std::ifstream inStream;
+std::ofstream outStream;
+pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+bool inLoop = true;
+bool outLoop = true;
+std::queue<std::string> queue;
 
 int argNumChecker(char *arg);
 void* readSource(void *arg);
@@ -28,24 +33,34 @@ int main(int argc, char** argv) {
     dest = argv[3];
 
     std::vector<pthread_t> readers(numThreads);
-    std::ifstream inputStream(source);
+    inStream.open(source);
+    
+    int errNum = 0;
 
     for (int i = 0; i < numThreads; i++) {
-        pthread_create(&readers.at(i), NULL, readSource, &inputStream);
+        errNum = pthread_create(&readers.at(i), NULL, readSource, NULL);
+
+        if (errNum) {
+            std::cout << "Error #" << errNum << " | From pthread_create reader #" << i << std::endl;
+            return EXIT_FAILURE;
+        }
     }
 
-    numThreads--;
+    numThreads--; // To account for main thread also executing
 
     std::vector<pthread_t> writers(numThreads);
-    std::ofstream outputStream(dest);
+    outStream.open(dest);
 
     for (int i = 0; i < numThreads; i++) {
-        pthread_create(&writers.at(i), NULL, writeDest, &outputStream);
+        errNum = pthread_create(&writers.at(i), NULL, writeDest, NULL);
+
+        if (errNum) {
+            std::cout << "Error #" << errNum << " | From pthread_create writer #" << i << std::endl;
+            return EXIT_FAILURE;
+        }
     }
 
-    writeDest(NULL);
-
-    return EXIT_SUCCESS;
+    writeDest(NULL); // "return EXIT_SUCCESS" not called because writeDest has "pthread_exit(NULL)"
 }
 
 int argNumChecker(char *arg) {
@@ -67,19 +82,63 @@ int argNumChecker(char *arg) {
 }
 
 void* readSource(void *arg) {
-    std::ifstream stream = 
-    while () {
+    std::string temp;
+    int errNum = 0;
 
+    while (inLoop) {
+        errNum = pthread_mutex_lock(&lock);
+
+        if (errNum) {
+            std::cout << "Error #" << errNum << " | From pthread_mutex_lock reader" << std::endl;
+            inLoop = false;
+        }
+        else {
+            if (inStream >> temp) {
+                queue.push(temp);
+            }
+            else {
+                inLoop = false;
+            }
+
+            errNum = pthread_mutex_unlock(&lock);
+
+            if (errNum) {
+                std::cout << "Error #" << errNum << " | From pthread_mutex_unlock reader" << std::endl;
+                inLoop = false;
+            }
+        }
     }
 
-    pthread_exit(EXIT_SUCCESS);
+    pthread_exit(NULL);
 }
 
 void* writeDest(void *arg) {
+    int errNum = 0;
 
-    while () {
+    while (outLoop) {
+        errNum = pthread_mutex_lock(&lock);
 
+        if (errNum) {
+            std::cout << "Error #" << errNum << " | From pthread_mutex_lock writer" << std::endl;
+            outLoop = false;
+        }
+        else {
+            if (!queue.empty()) {
+                outStream << queue.front();
+                queue.pop();
+            }
+            else if (!inLoop) {
+                outLoop = false;
+            }
+
+            errNum = pthread_mutex_unlock(&lock);
+
+            if (errNum) {
+                std::cout << "Error #" << errNum << " | From pthread_mutex_unlock writer" << std::endl;
+                outLoop = false;
+            }
+        }
     }
 
-    pthread_exit(EXIT_SUCCESS);
+    pthread_exit(NULL);
 }

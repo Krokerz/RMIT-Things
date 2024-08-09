@@ -5,8 +5,8 @@
 #include <stdexcept>
 #include <pthread.h>
 
-std::string source = "";
-std::string dest = "";
+std::string source;
+std::string dest;
 
 int argNumChecker(char *arg);
 void* fileCopier(void *arg);
@@ -29,26 +29,31 @@ int main(int argc, char** argv) {
     source = argv[2];
     dest = argv[3];
 
-    std::vector<int> nums = {};
+    std::vector<int> nums;
 
     for (int i = 1; i <= numFiles; i++) {
         nums.push_back(i);
     }
 
-    numFiles--; // To account for main thread
+    numFiles--; // To account for main thread also executing fileCopier
 
     std::vector<pthread_t> threads(numFiles);
 
     // pthread_attr_t threadAttr;
     // pthread_attr_init(threadAttr);
 
+    int errNum = 0;
+
     for (int i = 0; i < numFiles; i++) {
-        pthread_create(&threads.at(i), NULL, fileCopier, &nums.at(i));
+        errNum = pthread_create(&threads.at(i), NULL, fileCopier, &nums.at(i));
+
+        if (errNum) {
+            std::cout << "Error #" << errNum << " | From pthread_create #" << i << std::endl;
+            return EXIT_FAILURE;
+        }
     }
 
-    fileCopier(&nums.at(numFiles));
-
-    return EXIT_SUCCESS;
+    fileCopier(&nums.at(numFiles)); // "return EXIT_SUCCESS" not called because fileCopier has "pthread_exit(NULL)"
 }
 
 int argNumChecker(char *arg) {
@@ -79,5 +84,5 @@ void* fileCopier (void* arg) {
 
     system(query.c_str());
 
-    pthread_exit(EXIT_SUCCESS);
+    pthread_exit(NULL);
 }
