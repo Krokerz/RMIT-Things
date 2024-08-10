@@ -1,12 +1,3 @@
-completing
-helen
-got
-projection
-allan
-pens
-autos
-wave
-apps
 enabling
 irc
 alaska
@@ -28,3 +19,712 @@ transferred
 contained
 playlist
 publicly
+➜  Project1 git:(main) ✗ ./mscopier 3 input output
+➜  Project1 git:(main) ✗ g++17 mscopier task2.cpp -lpthread                                                                    
+➜  Project1 git:(main) ✗ ./mscopier 3 input output         
+➜  Project1 git:(main) ✗ leaks --atExit -- ./mscopier 3 input output 
+mscopier(17173) MallocStackLogging: could not tag MSL-related memory as no_footprint, so those pages will be included in process footprint - (null)
+mscopier(17173) MallocStackLogging: recording malloc and VM allocation stacks using lite mode
+Process 17173 is not debuggable. Due to security restrictions, leaks can only show or save contents of readonly memory of restricted processes.
+
+Process:         mscopier [17173]
+Path:            /Users/USER/Desktop/*/mscopier
+Load Address:    0x102edc000
+Identifier:      mscopier
+Version:         0
+Code Type:       ARM64
+Platform:        macOS
+Parent Process:  leaks [17172]
+
+Date/Time:       2024-08-10 5:19:38.984 +1000
+Launch Time:     2024-08-10 5:19:38.863 +1000
+OS Version:      macOS 13.0 (22A380)
+Report Version:  7
+Analysis Tool:   /usr/bin/leaks
+
+Physical footprint:         3137K
+Physical footprint (peak):  3169K
+Idle exit: untracked
+----
+
+leaks Report Version: 4.0, multi-line stacks
+Process 17173: 221 nodes malloced for 12 KB
+Process 17173: 0 leaks for 0 total leaked bytes.
+
+➜  Project1 git:(main) ✗ time ./mmcopier 3 source_dir destination_dir
+./mmcopier 3 source_dir destination_dir  0.01s user 0.01s system 77% cpu 0.025 total
+➜  Project1 git:(main) ✗ ./mmcopier 5 source_dir destina                                                 
+➜  Project1 git:(main) ✗ g++17 mmcopier task1.cpp -lpthread                                                  
+➜  Project1 git:(main) ✗ ./mmcopier 5 source_dir destina             
+The destination directory is not a directory
+➜  Project1 git:(main) ✗ g++17 mmcopier task1.cpp -lpthread
+➜  Project1 git:(main) ✗ ./mmcopier 5 source_dir destina   
+The destination is not a directory
+➜  Project1 git:(main) ✗ ./mmcopier m source_dir destination_dir
+stoi: no conversion
+➜  Project1 git:(main) ✗ ./mmcopier 9999999999 source_dir destination_dir
+stoi: out of range
+➜  Project1 git:(main) ✗ ./mmcopier 5 source_dir destination_dir        
+➜  Project1 git:(main) ✗ rm -r destination_dir/*
+zsh: sure you want to delete all 5 files in /Users/Kevin/Desktop/RMIT-Things/Year 2 Semester 1/OS Principles/Project1/destination_dir [yn]? y
+➜  Project1 git:(main) ✗ 
+➜  Project1 git:(main) ✗ ./mmcopier 5 source_dir destination_dir
+➜  Project1 git:(main) ✗ g++17 mscopier task2.cpp -lpthread         
+➜  Project1 git:(main) ✗ ./mscopier 6 input output                 
+➜  Project1 git:(main) ✗ diff -w input output
+➜  Project1 git:(main) ✗ diff -w input output
+1,30c1
+< completing
+< helen
+< got
+< projection
+< allan
+< pens
+< autos
+< wave
+< apps
+< enabling
+< irc
+< alaska
+< dallas
+< instance
+< brochure
+< fioricet
+< beads
+< blame
+< tales
+< gulf
+< replied
+< brush
+< benjamin
+< flyer
+< conduct
+< contributed
+< transferred
+< contained
+< playlist
+< publicly
+\ No newline at end of file
+---
+> 
+➜  Project1 git:(main) ✗ ./generate_text.sh 100
+intent
+instruction
+chambers
+kidney
+package
+species
+inbox
+basement
+reflections
+tin
+solve
+combo
+collectables
+chemical
+date
+mate
+penis
+sur
+cave
+ing
+statewide
+scotia
+fallen
+ladder
+extensive
+debt
+ourselves
+tariff
+instruments
+savings
+funded
+safe
+eligible
+suit
+bobby
+surgeon
+exclusion
+features
+laundry
+dd
+holes
+campbell
+translation
+classified
+brakes
+careers
+physically
+playstation
+about
+hairy
+trademarks
+targets
+applicable
+traveling
+albert
+respect
+chancellor
+calculate
+brooklyn
+tyler
+network
+shorts
+fist
+layout
+cheapest
+govt
+incident
+concept
+sweden
+affect
+advisory
+passwords
+implemented
+oil
+academics
+thong
+chains
+witness
+eight
+sticky
+gallery
+has
+sauce
+deaths
+clearly
+essays
+reserves
+modifications
+na
+hate
+begins
+jacob
+imaging
+antibody
+includes
+daniel
+adopted
+appointed
+chicken
+innocent
+➜  Project1 git:(main) ✗ ./mscopier 10 input output       
+➜  Project1 git:(main) ✗ diff -w input output      
+83a84
+> 
+85c86
+< clearly
+---
+> 
+87c88
+< reserves
+---
+> 
+90d90
+< hate
+➜  Project1 git:(main) ✗ g++17 mscopier task2.cpp -lpthread
+➜  Project1 git:(main) ✗ ./mscopier 10 input output        
+➜  Project1 git:(main) ✗ diff -w input output              
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output      
+➜  Project1 git:(main) ✗ ./generate_text.sh 500            
+nuke
+ooo
+autos
+throw
+betting
+alexandria
+wearing
+milf
+mainstream
+various
+genuine
+merit
+early
+trembl
+peterson
+beans
+florist
+governing
+groundwater
+moscow
+tremendous
+stockings
+corners
+sewing
+suppliers
+earning
+thee
+speeds
+coin
+trading
+suit
+senate
+shop
+venezuela
+catalyst
+ci
+doug
+manor
+digest
+prizes
+optics
+bikes
+aboriginal
+aerospace
+occupational
+outstanding
+introduction
+appreciate
+johnson
+nipple
+exercise
+galaxy
+sue
+fruits
+constitution
+headed
+meetings
+faith
+possibility
+soil
+converter
+seem
+documents
+speaker
+tribute
+newark
+sucks
+bottom
+message
+reporter
+his
+ways
+horror
+queen
+netherlands
+winston
+line
+report
+informal
+celebrate
+vaccine
+dominican
+ez
+britain
+combo
+hello
+ty
+growth
+broadcasting
+ip
+locale
+polish
+golf
+wichita
+advised
+cia
+authorized
+mono
+mls
+mutual
+mr
+turtle
+herb
+boards
+honest
+jm
+hottest
+mobiles
+junction
+served
+civic
+changed
+monitors
+prospect
+holds
+peripherals
+held
+wells
+newsletters
+vegetarian
+blackberry
+resolve
+focal
+gave
+tile
+chicks
+novel
+encouraged
+placed
+economic
+detail
+introduced
+wma
+celebrity
+ws
+expenditure
+contact
+liechtenstein
+prison
+glucose
+custom
+loan
+commonwealth
+economies
+coordinate
+finest
+seq
+breath
+looksmart
+blonde
+changing
+chris
+swift
+mart
+yesterday
+christian
+cylinder
+meaningful
+lung
+vc
+fuji
+joseph
+humanity
+minority
+unsigned
+cables
+contributing
+johnston
+extension
+situation
+defence
+countries
+environments
+sophisticated
+wal
+plenty
+bigger
+geometry
+cdna
+poet
+photoshop
+anonymous
+elementary
+shine
+adjacent
+calculation
+tomatoes
+model
+fight
+driving
+back
+kills
+states
+continuity
+although
+loc
+worldwide
+acquisitions
+ham
+promising
+comp
+freight
+planets
+bros
+mazda
+wishlist
+japanese
+regular
+relax
+component
+assumptions
+aging
+eleven
+nails
+payment
+cache
+vocabulary
+ads
+refer
+orleans
+norton
+compile
+happen
+recipes
+tracking
+posts
+realized
+pale
+balloon
+intervention
+dangerous
+ru
+partnership
+strap
+honduras
+jews
+scheme
+motorcycle
+small
+crystal
+alto
+voting
+final
+parts
+intervals
+transition
+cups
+trustee
+bibliographic
+toyota
+enforcement
+maiden
+inspired
+cheapest
+pcs
+rec
+most
+ta
+dallas
+january
+optimize
+intention
+legally
+toys
+answers
+acceptance
+spray
+requesting
+notice
+parallel
+acrobat
+inquiries
+stickers
+translate
+won
+upon
+capitol
+chair
+ate
+violin
+midi
+thumbnail
+rugby
+updates
+produced
+config
+confident
+rats
+reg
+mails
+allowing
+pda
+novelty
+their
+glory
+russia
+same
+crap
+good
+appropriate
+kyle
+lite
+vhs
+auditor
+quest
+advantages
+buck
+throughout
+arab
+courses
+nation
+trademark
+verbal
+advancement
+development
+somewhat
+seen
+universe
+body
+fate
+george
+schools
+sql
+bedford
+liable
+assisted
+carry
+details
+cancellation
+competition
+naples
+mississippi
+borders
+birmingham
+reseller
+passenger
+stuff
+prominent
+picnic
+seasons
+brighton
+cat
+agriculture
+amazoncom
+completed
+vsnet
+magazines
+treatment
+consolidation
+recent
+shipments
+manager
+close
+heated
+framing
+orange
+stockholm
+bars
+announce
+harper
+databases
+verse
+pounds
+statutory
+alabama
+favor
+doubt
+inexpensive
+appearing
+winds
+protocol
+drunk
+looks
+iran
+occurrence
+istanbul
+dead
+mag
+society
+charges
+destruction
+pierce
+compiled
+graphical
+accident
+edmonton
+ship
+observe
+bracket
+dry
+ghz
+unavailable
+in
+schemes
+thick
+barrier
+consumption
+making
+instantly
+prints
+ran
+shipment
+picks
+symphony
+creative
+bathroom
+quad
+appropriations
+nightmare
+dealing
+sg
+kansas
+symptoms
+lottery
+analyst
+female
+clearing
+remind
+weight
+html
+crack
+suck
+gi
+masturbating
+paris
+wool
+pi
+fever
+boulevard
+arrived
+textbooks
+scientist
+upgrading
+infected
+wet
+accurately
+outdoor
+famous
+competing
+joint
+sunshine
+latina
+surround
+desert
+eos
+ties
+rom
+involvement
+six
+hybrid
+tri
+directors
+generating
+impaired
+harm
+transparent
+taught
+bangkok
+lost
+mailing
+state
+furniture
+curriculum
+explore
+doing
+familiar
+mph
+workplace
+button
+citations
+opposition
+somalia
+additions
+palmer
+lu
+vary
+ec
+julian
+serving
+connect
+trend
+intend
+some
+mixture
+rest
+advocacy
+god
+messages
+monetary
+positions
+atom
+sacramento
+communities
+introducing
+cheaper
+singing
+described
+couple
+phd
+college

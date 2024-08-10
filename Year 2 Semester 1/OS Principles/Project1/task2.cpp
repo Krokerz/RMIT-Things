@@ -17,6 +17,8 @@ std::string dest;
 std::ifstream inStream;
 std::ofstream outStream;
 pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t inLock = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t outLock = PTHREAD_MUTEX_INITIALIZER;
 bool inLoop = true;
 bool outLoop = true;
 std::queue<std::string> queue;
@@ -102,7 +104,7 @@ void* readSource(void *arg) {
             inLoop = false;
         }
         else {
-            if (inStream >> temp) {
+            if (getline(inStream, temp)) {
                 queue.push(temp);
             }
             else {
@@ -151,3 +153,77 @@ void* writeDest(void *arg) {
 
     pthread_exit(NULL);
 }
+
+// void* readSourceTEMP(void *arg) {
+//     std::string temp;
+//     int errNum = 0;
+
+//     while (inLoop) {
+//         errNum = pthread_mutex_lock(&lock);
+
+//         if (errNum) {
+//             std::cout << "Error #" << errNum << " | From pthread_mutex_lock reader" << std::endl;
+//             inLoop = false;
+//         }
+//         else {
+//             if (inLoop) {
+//                 if (inStream >> temp) {
+//                     queue.push(temp);
+//                 }
+//                 else {
+//                     inLoop = false;
+//                 }
+//             }
+
+//             pthread_cond_broadcast(&outCond);
+
+//             errNum = pthread_mutex_unlock(&lock);
+
+//             if (errNum) {
+//                 std::cout << "Error #" << errNum << " | From pthread_mutex_unlock reader" << std::endl;
+//                 inLoop = false;
+//             }
+//         }
+//     }
+
+//     pthread_exit(NULL);
+// }
+
+// void* writeDestTEMP(void *arg) {
+//     int errNum = 0;
+
+//     while (outLoop) {
+//         errNum = pthread_mutex_lock(&outLock);
+
+//         if (errNum) {
+//             std::cout << "Error #" << errNum << " | From pthread_mutex_lock writer" << std::endl;
+//             outLoop = false;
+//         }
+//         else {
+//             if (!inLoop && queue.empty()) {
+//                 outLoop = false;
+//             }
+
+//             if (queue.empty()) {
+//                 pthread_cond_wait(&outCond, &outLock);
+
+//                 if (!inLoop) {
+//                     outLoop = false;
+//                 }
+//             }
+
+//             outStream << queue.front() << '\n';
+//             queue.pop();
+
+
+//             errNum = pthread_mutex_unlock(&outLock);
+
+//             if (errNum) {
+//                 std::cout << "Error #" << errNum << " | From pthread_mutex_unlock writer" << std::endl;
+//                 outLoop = false;
+//             }
+//         }
+//     }
+
+//     pthread_exit(NULL);
+// }
