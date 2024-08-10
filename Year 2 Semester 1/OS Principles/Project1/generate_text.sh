@@ -18,6 +18,6 @@ fi
 
 # Generate the file with n random lines from the dictionary
 # echo "Generated file '$output_file' with $n lines of text."
-shuf -n "$n" "$dictionary" 
+gshuf -n "$n" "$dictionary" 
 
 

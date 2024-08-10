@@ -1,25 +1,39 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cctype>
 #include <stdexcept>
+#include <filesystem>
 #include <pthread.h>
 
 std::string source;
 std::string dest;
 
-int argNumChecker(char *arg);
 void* fileCopier(void *arg);
 
-int main(int argc, char** argv) {
+int main(int argc, char* *argv) {
     int numFiles = 0;
 
     try {
         if (argc < 4) {
-            throw std::invalid_argument("Not enough arguments");
+            throw std::logic_error("Not enough arguments");
         }
-        
-        numFiles = argNumChecker(argv[1]);
+
+        // Checking inputted num (argv[1])
+        numFiles = std::stoi(argv[1]);
+
+        if ((numFiles > 10) || (numFiles < 1)) {
+            throw std::out_of_range("The first argument must be a digit between 2 - 10");
+        }
+
+        // Checking inputted source (argv[2])
+        if (!std::filesystem::is_directory(std::filesystem::status(argv[2]))) {
+            throw std::logic_error("The source is not a directory");
+        }
+
+        // Checking inputted dest (argv[3])
+        if (!std::filesystem::is_directory(std::filesystem::status(argv[3]))) {
+            throw std::logic_error("The destination is not a directory");
+        }
     }
     catch (const std::exception &e) {
         std::cout << e.what() << std::endl;
@@ -56,31 +70,11 @@ int main(int argc, char** argv) {
     fileCopier(&nums.at(numFiles)); // "return EXIT_SUCCESS" not called because fileCopier has "pthread_exit(NULL)"
 }
 
-int argNumChecker(char *arg) {
-    // std::cout << "strlen: " << strlen(arg) << std::endl;
-
-    for (int i = 0; i < strlen(arg); i++) {
-        if (!isdigit(arg[i])) {
-            throw std::invalid_argument("The first argument must be a digit between 1 - 10");
-        }   
-    }
-
-    int out = std::stoi(arg);
-
-    if ((out > 10) || (out < 1)) {
-        throw std::invalid_argument("The first argument must be a digit between 1 - 10");
-    }
-
-    return out;
-}
-
 void* fileCopier (void* arg) {
     std::string query = "cp ";
     query += source + "/source";
     query += std::to_string(*static_cast<int*>(arg));
     query += ".txt " + dest;
- 
-    // std::cout << query << std::endl;
 
     system(query.c_str());
 
