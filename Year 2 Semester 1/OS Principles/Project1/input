@@ -1,133 +1,3 @@
-enabling
-irc
-alaska
-dallas
-instance
-brochure
-fioricet
-beads
-blame
-tales
-gulf
-replied
-brush
-benjamin
-flyer
-conduct
-contributed
-transferred
-contained
-playlist
-publicly
-➜  Project1 git:(main) ✗ ./mscopier 3 input output
-➜  Project1 git:(main) ✗ g++17 mscopier task2.cpp -lpthread                                                                    
-➜  Project1 git:(main) ✗ ./mscopier 3 input output         
-➜  Project1 git:(main) ✗ leaks --atExit -- ./mscopier 3 input output 
-mscopier(17173) MallocStackLogging: could not tag MSL-related memory as no_footprint, so those pages will be included in process footprint - (null)
-mscopier(17173) MallocStackLogging: recording malloc and VM allocation stacks using lite mode
-Process 17173 is not debuggable. Due to security restrictions, leaks can only show or save contents of readonly memory of restricted processes.
-
-Process:         mscopier [17173]
-Path:            /Users/USER/Desktop/*/mscopier
-Load Address:    0x102edc000
-Identifier:      mscopier
-Version:         0
-Code Type:       ARM64
-Platform:        macOS
-Parent Process:  leaks [17172]
-
-Date/Time:       2024-08-10 5:19:38.984 +1000
-Launch Time:     2024-08-10 5:19:38.863 +1000
-OS Version:      macOS 13.0 (22A380)
-Report Version:  7
-Analysis Tool:   /usr/bin/leaks
-
-Physical footprint:         3137K
-Physical footprint (peak):  3169K
-Idle exit: untracked
-----
-
-leaks Report Version: 4.0, multi-line stacks
-Process 17173: 221 nodes malloced for 12 KB
-Process 17173: 0 leaks for 0 total leaked bytes.
-
-➜  Project1 git:(main) ✗ time ./mmcopier 3 source_dir destination_dir
-./mmcopier 3 source_dir destination_dir  0.01s user 0.01s system 77% cpu 0.025 total
-➜  Project1 git:(main) ✗ ./mmcopier 5 source_dir destina                                                 
-➜  Project1 git:(main) ✗ g++17 mmcopier task1.cpp -lpthread                                                  
-➜  Project1 git:(main) ✗ ./mmcopier 5 source_dir destina             
-The destination directory is not a directory
-➜  Project1 git:(main) ✗ g++17 mmcopier task1.cpp -lpthread
-➜  Project1 git:(main) ✗ ./mmcopier 5 source_dir destina   
-The destination is not a directory
-➜  Project1 git:(main) ✗ ./mmcopier m source_dir destination_dir
-stoi: no conversion
-➜  Project1 git:(main) ✗ ./mmcopier 9999999999 source_dir destination_dir
-stoi: out of range
-➜  Project1 git:(main) ✗ ./mmcopier 5 source_dir destination_dir        
-➜  Project1 git:(main) ✗ rm -r destination_dir/*
-zsh: sure you want to delete all 5 files in /Users/Kevin/Desktop/RMIT-Things/Year 2 Semester 1/OS Principles/Project1/destination_dir [yn]? y
-➜  Project1 git:(main) ✗ 
-➜  Project1 git:(main) ✗ ./mmcopier 5 source_dir destination_dir
-➜  Project1 git:(main) ✗ g++17 mscopier task2.cpp -lpthread         
-➜  Project1 git:(main) ✗ ./mscopier 6 input output                 
-➜  Project1 git:(main) ✗ diff -w input output
-➜  Project1 git:(main) ✗ diff -w input output
-1,30c1
-< completing
-< helen
-< got
-< projection
-< allan
-< pens
-< autos
-< wave
-< apps
-< enabling
-< irc
-< alaska
-< dallas
-< instance
-< brochure
-< fioricet
-< beads
-< blame
-< tales
-< gulf
-< replied
-< brush
-< benjamin
-< flyer
-< conduct
-< contributed
-< transferred
-< contained
-< playlist
-< publicly
-\ No newline at end of file
----
-> 
-➜  Project1 git:(main) ✗ ./generate_text.sh 100
-intent
-instruction
-chambers
-kidney
-package
-species
-inbox
-basement
-reflections
-tin
-solve
-combo
-collectables
-chemical
-date
-mate
-penis
-sur
-cave
-ing
 statewide
 scotia
 fallen
@@ -728,3 +598,417 @@ described
 couple
 phd
 college
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output      
+101,102c101,116
+< ➜  Project1 git:(main) ✗ ./mscopier 10 input output       
+< ➜  Project1 git:(main) ✗ diff -w input output      
+---
+> ➜
+> Project1
+> git:(main)
+> ✗
+> ./mscopier
+> 10
+> input
+> output
+> ➜
+> Project1
+> git:(main)
+> ✗
+> diff
+> -w
+> input
+> output
+106c120,121
+< < clearly
+---
+> <
+> clearly
+110c125,126
+< < reserves
+---
+> <
+> reserves
+114,120c130,177
+< < hate
+< ➜  Project1 git:(main) ✗ g++17 mscopier task2.cpp -lpthread
+< ➜  Project1 git:(main) ✗ ./mscopier 10 input output        
+< ➜  Project1 git:(main) ✗ diff -w input output              
+< ➜  Project1 git:(main) ✗ ./mscopier 10 input output
+< ➜  Project1 git:(main) ✗ diff -w input output      
+< ➜  Project1 git:(main) ✗ ./generate_text.sh 500            
+---
+> <
+> hate
+> ➜
+> Project1
+> git:(main)
+> ✗
+> g++17
+> mscopier
+> task2.cpp
+> -lpthread
+> ➜
+> Project1
+> git:(main)
+> ✗
+> ./mscopier
+> 10
+> input
+> output
+> ➜
+> Project1
+> git:(main)
+> ✗
+> diff
+> -w
+> input
+> output
+> ➜
+> Project1
+> git:(main)
+> ✗
+> ./mscopier
+> 10
+> input
+> output
+> ➜
+> Project1
+> git:(main)
+> ✗
+> diff
+> -w
+> input
+> output
+> ➜
+> Project1
+> git:(main)
+> ✗
+> ./generate_text.sh
+> 500
+➜  Project1 git:(main) ✗ g++17 mscopier task2.cpp -lpthread
+➜  Project1 git:(main) ✗ ./mscopier 10 input output        
+➜  Project1 git:(main) ✗ diff -w input output        
+101,102c101,116
+< ➜  Project1 git:(main) ✗ ./mscopier 10 input output       
+< ➜  Project1 git:(main) ✗ diff -w input output      
+---
+> ➜
+> Project1
+> git:(main)
+> ✗
+> ./mscopier
+> 10
+> input
+> output
+> ➜
+> Project1
+> git:(main)
+> ✗
+> diff
+> -w
+> input
+> output
+106c120,121
+< < clearly
+---
+> <
+> clearly
+110c125,126
+< < reserves
+---
+> <
+> reserves
+114,120c130,177
+< < hate
+< ➜  Project1 git:(main) ✗ g++17 mscopier task2.cpp -lpthread
+< ➜  Project1 git:(main) ✗ ./mscopier 10 input output        
+< ➜  Project1 git:(main) ✗ diff -w input output              
+< ➜  Project1 git:(main) ✗ ./mscopier 10 input output
+< ➜  Project1 git:(main) ✗ diff -w input output      
+< ➜  Project1 git:(main) ✗ ./generate_text.sh 500            
+---
+> <
+> hate
+> ➜
+> Project1
+> git:(main)
+> ✗
+> g++17
+> mscopier
+> task2.cpp
+> -lpthread
+> ➜
+> Project1
+> git:(main)
+> ✗
+> ./mscopier
+> 10
+> input
+> output
+> ➜
+> Project1
+> git:(main)
+> ✗
+> diff
+> -w
+> input
+> output
+> ➜
+> Project1
+> git:(main)
+> ✗
+> ./mscopier
+> 10
+> input
+> output
+> ➜
+> Project1
+> git:(main)
+> ✗
+> diff
+> -w
+> input
+> output
+> ➜
+> Project1
+> git:(main)
+> ✗
+> ./generate_text.sh
+> 500
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output      
+➜  Project1 git:(main) ✗ diff -w input output
+➜  Project1 git:(main) ✗ g++17 mscopier task2.cpp -lpthread
+➜  Project1 git:(main) ✗ ./mscopier 10 input output        
+➜  Project1 git:(main) ✗ diff -w input output              
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output      
+1c1,2
+< nuke hjkbjh
+---
+> nuke
+> hjkbjh
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output      
+➜  Project1 git:(main) ✗ g++17 mscopier task2.cpp -lpthread
+➜  Project1 git:(main) ✗ ./mscopier 10 input output        
+➜  Project1 git:(main) ✗ diff -w input output              
+➜  Project1 git:(main) ✗ g++17 mscopier task2.cpp -lpthread
+➜  Project1 git:(main) ✗ ./mscopier 10 input output        
+[1]    44174 segmentation fault  ./mscopier 10 input output
+➜  Project1 git:(main) ✗ g++17 mscopier task2.cpp -lpthread
+➜  Project1 git:(main) ✗ ./mscopier 10 input output        
+➜  Project1 git:(main) diff -w input output        
+➜  Project1 git:(main) g++17 mscopier task2.cpp -lpthread
+➜  Project1 git:(main) ✗ ./mscopier 10 input output        
+➜  Project1 git:(main) ✗ diff -w input output              
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output      
+➜  Project1 git:(main) ✗ g++17 mscopier task2.cpp -lpthread
+➜  Project1 git:(main) ✗ ./mscopier 10 input output        
+mscopier(44928,0x16be2f000) malloc: Double free of object 0x13f704220
+mscopier(44928,0x16be2f000) malloc: *** set a breakpoint in malloc_error_break to debug
+[1]    44928 abort      ./mscopier 10 input output
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+mscopier(44960,0x206f82500) malloc: Double free of object 0x11f704220
+mscopier(44960,0x206f82500) malloc: *** set a breakpoint in malloc_error_break to debug
+[1]    44960 abort      ./mscopier 10 input output
+➜  Project1 git:(main) ✗ g++17 mscopier task2.cpp -lpthread
+➜  Project1 git:(main) ✗ ./mscopier 10 input output        
+[1]    45019 segmentation fault  ./mscopier 10 input output
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output              
+➜  Project1 git:(main) ✗ ./mscopier 10 input output        
+[1]    45138 segmentation fault  ./mscopier 10 input output
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+[1]    45169 segmentation fault  ./mscopier 10 input output
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+mscopier(45192,0x16fe07000) malloc: Double free of object 0x12ca04110
+mscopier(45192,0x16fe07000) malloc: *** set a breakpoint in malloc_error_break to debug
+[1]    45192 abort      ./mscopier 10 input output
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output      
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+mscopier(45278,0x16c533000) malloc: Double free of object 0x14ec040e0
+mscopier(45278,0x16c533000) malloc: *** set a breakpoint in malloc_error_break to debug
+[1]    45278 abort      ./mscopier 10 input output
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+mscopier(45304,0x16c0c7000) malloc: Double free of object 0x129904080
+mscopier(45304,0x16c0c7000) malloc: *** set a breakpoint in malloc_error_break to debug
+[1]    45304 abort      ./mscopier 10 input output
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output      
+113,114d112
+< chambers
+< kidney
+117a116
+> 
+121,123c120
+< solve
+< combo
+< collectables
+---
+> 
+128a126
+> 
+130d127
+< ing
+133a131
+> 
+136,137d133
+< debt
+< ourselves
+141a138
+> 
+147d143
+< exclusion
+149a146
+> 
+151,152d147
+< holes
+< campbell
+154d148
+< classified
+157a152
+> 
+160a156
+> 
+184d179
+< oil
+188c183
+< witness
+---
+> 
+190d184
+< sticky
+194a189
+> 
+195a191
+> 
+196a193
+> 
+198d194
+< modifications
+208c204
+< appointed
+---
+> 
+420a417
+> < completing
+446a444
+> < contained
+454a453
+> package
+457a457
+> basement
+552a553
+> 
+555,556d555
+< liable
+< assisted
+558,559d556
+< details
+< cancellation
+562c559
+< mississippi
+---
+> 
+564,565c561
+< birmingham
+< reseller
+---
+> 
+566a563
+> 
+567a565
+> 
+569c567
+< picnic
+---
+> 
+570a569
+> 
+572,573c571
+< cat
+< agriculture
+---
+> 
+586,587d583
+< orange
+< stockholm
+590a587
+> 
+604a602
+> 
+609d606
+< society
+620a618
+> 
+642d639
+< kansas
+644d640
+< lottery
+645a642
+> 
+647,648d643
+< clearing
+< remind
+657d651
+< pi
+679d672
+< six
+687d679
+< taught
+690c682
+< mailing
+---
+> peripherals
+691a684
+> wells
+692a686
+> vegetarian
+693a688
+> resolve
+705d699
+< lu
+716a711
+> coordinate
+719,720c714
+< monetary
+< positions
+---
+> breath
+➜  Project1 git:(main) ✗ g++17 mscopier task2.cpp -lpthread
+➜  Project1 git:(main) ✗ ./mscopier 10 input output        
+➜  Project1 git:(main) ✗ diff -w input output              
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output      
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output      
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output      
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output      
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output      
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output      
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output      
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output      
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output      
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output      
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output      
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output      
+➜  Project1 git:(main) ✗ ./mscopier 10 input output
+➜  Project1 git:(main) ✗ diff -w input output      
+➜  Project1 git:(main) ✗ g++17 multlock task2.cpp -lpthread
+➜  Project1 git:(main) ✗ g++17 singlock task2.cpp -lpthread
+➜  Project1 git:(main) ✗ 

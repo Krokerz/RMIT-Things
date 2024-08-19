@@ -1,0 +1,12 @@
+Installation:
+    Run the makefile and use the outputted mmcopier and mscopier accordingly.
+    (./mmcopier n source_dir destination_dir)
+    (./mscopier n source_file destination_file)
+
+Locks:
+    - task2.h: line 15, 16, 17
+    - task2.cpp: line 79, 91, 96, 104, 120, 135, 141, 146
+
+Condition variables:
+    - task2.h: line 18, 19
+    - task2.cpp: 87, 102, 128, 144

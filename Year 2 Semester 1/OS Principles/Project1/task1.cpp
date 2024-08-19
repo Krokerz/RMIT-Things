@@ -1,14 +1,9 @@
 #include <iostream>
-#include <string>
 #include <vector>
 #include <stdexcept>
 #include <filesystem>
 #include <pthread.h>
-
-std::string source;
-std::string dest;
-
-void* fileCopier(void *arg);
+#include "task1.h"
 
 int main(int argc, char* *argv) {
     int numFiles = 0;
@@ -22,7 +17,7 @@ int main(int argc, char* *argv) {
         numFiles = std::stoi(argv[1]);
 
         if ((numFiles > 10) || (numFiles < 1)) {
-            throw std::out_of_range("The first argument must be a digit between 2 - 10");
+            throw std::out_of_range("The first argument must be a digit between 1 - 10");
         }
 
         // Checking inputted source (argv[2])
