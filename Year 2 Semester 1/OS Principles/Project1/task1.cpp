@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <stdexcept>
-#include <filesystem>
 #include <pthread.h>
+#include <sys/stat.h>
 #include "task1.h"
 
 int main(int argc, char* *argv) {
@@ -20,13 +20,15 @@ int main(int argc, char* *argv) {
             throw std::out_of_range("The first argument must be a digit between 1 - 10");
         }
 
+        struct stat info;
+
         // Checking inputted source (argv[2])
-        if (!std::filesystem::is_directory(std::filesystem::status(argv[2]))) {
+        if (stat(argv[2], &info) != 0) {
             throw std::logic_error("The source is not a directory");
         }
 
         // Checking inputted dest (argv[3])
-        if (!std::filesystem::is_directory(std::filesystem::status(argv[3]))) {
+        if (stat(argv[3], &info) != 0) {
             throw std::logic_error("The destination is not a directory");
         }
     }
