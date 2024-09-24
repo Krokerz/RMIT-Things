@@ -19,6 +19,8 @@ pthread_cond_t inCond = PTHREAD_COND_INITIALIZER;
 pthread_cond_t outCond = PTHREAD_COND_INITIALIZER;
 bool inLoop = true;
 bool outLoop = true;
+bool full = false;
+bool empty = false;
 std::queue<std::string> queue;
 unsigned int queueSize = 0;
 

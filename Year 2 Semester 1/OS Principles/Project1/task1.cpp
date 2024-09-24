@@ -46,12 +46,7 @@ int main(int argc, char* *argv) {
         nums.push_back(i);
     }
 
-    numFiles--; // To account for main thread also executing fileCopier
-
     std::vector<pthread_t> threads(numFiles);
-
-    // pthread_attr_t threadAttr;
-    // pthread_attr_init(threadAttr);
 
     int errNum = 0;
 
@@ -64,7 +59,16 @@ int main(int argc, char* *argv) {
         }
     }
 
-    fileCopier(&nums.at(numFiles)); // "return EXIT_SUCCESS" not called because fileCopier has "pthread_exit(NULL)"
+    for (int i = 0; i < numFiles; i++) {
+        errNum = pthread_join(threads.at(i), NULL);
+
+        if (!errNum) {
+            std::cout << "Error #" << errNum << " | From pthread_join #" << i << std::endl;
+            return EXIT_FAILURE;
+        }
+    }
+
+    return EXIT_SUCCESS;
 }
 
 void* fileCopier (void* arg) {
@@ -74,6 +78,4 @@ void* fileCopier (void* arg) {
     query += ".txt " + dest;
 
     system(query.c_str());
-
-    pthread_exit(NULL);
 }
