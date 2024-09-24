@@ -62,7 +62,7 @@ int main(int argc, char* *argv) {
     for (int i = 0; i < numFiles; i++) {
         errNum = pthread_join(threads.at(i), NULL);
 
-        if (!errNum) {
+        if (errNum) {
             std::cout << "Error #" << errNum << " | From pthread_join #" << i << std::endl;
             return EXIT_FAILURE;
         }
@@ -78,4 +78,6 @@ void* fileCopier (void* arg) {
     query += ".txt " + dest;
 
     system(query.c_str());
+
+    return NULL;
 }
