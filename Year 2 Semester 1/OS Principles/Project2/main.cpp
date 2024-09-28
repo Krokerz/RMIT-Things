@@ -2,6 +2,7 @@
 #include <list>
 #include <vector>
 #include <unistd.h>
+#include <climits>
 #include <stdexcept>
 
 class Allocation {
