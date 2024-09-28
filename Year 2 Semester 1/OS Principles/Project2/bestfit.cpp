@@ -98,7 +98,7 @@ void* alloc(size_t chunk_size) {
         throw std::runtime_error("Unallowed chunk size");
     }
     else {
-        unsigned int bestDiff = UINT_MAX;
+        int bestDiff = INT_MAX;
         allocIter_T bestAlloc = freeList.begin();
 
         for (allocIter_T it = freeList.begin(); it != freeList.end(); it++) {
