@@ -1,10 +1,13 @@
-all: memalloc
+all: firstfit bestfit
 
 %: %.o
-	g++ -Wall -std=c++11 -O $< -o $@
+	g++ -Wall -Werror -Wno-deprecated -std=c++11 -O -lpthread $< -o $@
 
-memalloc.o: main.cpp main.h
-	g++ -Wall -std=c++11 -O -c $< -o $@
+firstfit.o: firstfit.cpp memalloc.h
+	g++ -Wall -Werror -Wno-deprecated -std=c++11 -O -c $< -o $@
+
+bestfit.o: bestfit.cpp memalloc.h
+	g++ -Wall -Werror -Wno-deprecated -std=c++11 -O -c $< -o $@
 
 clean:
-	rm *.o memalloc
+	rm *.o firstfit bestfit
