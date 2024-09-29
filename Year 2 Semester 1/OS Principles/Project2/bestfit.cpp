@@ -137,7 +137,7 @@ void closing() {
     std::cout << "\nFree List: " << std::endl;
 
     for (Allocation i : freeList) {
-        std::cout << "- Address: " << i.space << " | Total Size: " << i.size << " | Occupied Size: " << i.occupied << std::endl;
+        std::cout << "- Address: " << i.space << " | Total Size: " << i.size << std::endl;
         
         temp += i.size;
     }
