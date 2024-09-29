@@ -64,8 +64,10 @@ void* alloc(size_t chunk_size) {
         allocIter_T bestAlloc = freeList.begin();
 
         for (allocIter_T it = freeList.begin(); it != freeList.end(); it++) {
-            if (abs(static_cast<int>(chunk_size) - static_cast<int>(it->size)) < bestDiff) {
-                bestDiff = chunk_size - it->size;
+            int temp = abs(static_cast<int>(chunk_size) - static_cast<int>(it->size));
+
+            if (temp < bestDiff) {
+                bestDiff = temp;
                 bestAlloc = it;
 
                 found = true;
