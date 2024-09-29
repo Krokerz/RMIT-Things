@@ -14,12 +14,10 @@ class Allocation {
 
     public:
         Allocation(size_t size, size_t occupied, void *space);
-        size_t getSize();
-        size_t getOccupied();
-        void* getSpace();
 
         friend void* alloc(size_t chunk_size);
         friend void dealloc(void *chunk);
+        friend void closing();
 };
 
 typedef std::list<Allocation>::iterator allocIter_T;
@@ -29,5 +27,6 @@ std::list<Allocation> freeList;
 
 void* alloc(size_t chunk_size);
 void dealloc(void *chunk);
+void closing();
 
 #endif

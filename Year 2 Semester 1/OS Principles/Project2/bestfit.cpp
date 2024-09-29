@@ -45,42 +45,12 @@ int main(int argc, char* *argv) {
 
     inStream.close();
 
-    int temp = 0;
-
-    std::cout << "Allocated List: " << std::endl;
-
-    for (Allocation i : occuList) {
-        std::cout << "- Address: " << i.getSpace() << " | Total Size: " << i.getSize() << " | Occupied Size: " << i.getOccupied() << std::endl;
-
-        temp += i.getSize();
-    }
-
-    std::cout << "\nFree List: " << std::endl;
-
-    for (Allocation i : freeList) {
-        std::cout << "- Address: " << i.getSpace() << " | Total Size: " << i.getSize() << " | Occupied Size: " << i.getOccupied() << std::endl;
-        
-        temp += i.getSize();
-    }
-
-    sbrk(0 - temp);
+    closing();
 
     return EXIT_SUCCESS;
 }
 
 Allocation::Allocation(size_t size, size_t occupied, void *space) : size(size), occupied(occupied), space(space) {}
-
-size_t Allocation::getSize() {
-    return size;
-}
-
-size_t Allocation::getOccupied() {
-    return occupied;
-}
-
-void* Allocation::getSpace() {
-    return space;
-}
 
 void* alloc(size_t chunk_size) {
     bool found = false;
@@ -151,4 +121,26 @@ void dealloc(void *chunk) {
     if (!found) {
         throw std::runtime_error("Unable to deallocate unallocated memory");
     }
+}
+
+void closing() {
+    int temp = 0;
+
+    std::cout << "Allocated List: " << std::endl;
+
+    for (Allocation i : occuList) {
+        std::cout << "- Address: " << i.space << " | Total Size: " << i.size << " | Occupied Size: " << i.occupied << std::endl;
+
+        temp += i.size;
+    }
+
+    std::cout << "\nFree List: " << std::endl;
+
+    for (Allocation i : freeList) {
+        std::cout << "- Address: " << i.space << " | Total Size: " << i.size << " | Occupied Size: " << i.occupied << std::endl;
+        
+        temp += i.size;
+    }
+
+    sbrk(0 - temp);
 }
