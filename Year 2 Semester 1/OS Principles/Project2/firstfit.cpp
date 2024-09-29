@@ -9,8 +9,6 @@ int main(int argc, char* *argv) {
     std::vector<void*> allocedVect;
     std::ifstream inStream;
     std::string str = "";
-
-    std::cout << "start: " << sbrk(0) << std::endl;
     
     try {
         if (argc < 2) {
@@ -48,8 +46,6 @@ int main(int argc, char* *argv) {
 
     int temp = 0;
 
-    std::cout << "mid: " << sbrk(0) << std::endl;
-
     std::cout << "Allocated List: " << std::endl;
 
     for (Allocation i : occuList) {
@@ -66,11 +62,7 @@ int main(int argc, char* *argv) {
         temp += i.getSize();
     }
 
-    std::cout << 0 - temp << std::endl;
-
     sbrk(0 - temp);
-
-    std::cout << "end: " << sbrk(0) << std::endl;
 
     return EXIT_SUCCESS;
 }
