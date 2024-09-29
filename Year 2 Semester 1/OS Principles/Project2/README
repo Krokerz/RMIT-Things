@@ -1,0 +1,4 @@
+Installation:
+    Run the makefile and use the outputted firstfit and bestfit accordingly.
+    (./firstfit datafile)
+    (./bestfit datafile)
