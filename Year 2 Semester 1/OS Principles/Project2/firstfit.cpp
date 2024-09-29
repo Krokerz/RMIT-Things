@@ -137,5 +137,7 @@ void closing() {
         temp += i.size;
     }
 
+    std::cout << -temp << std::endl;
+
     sbrk(0 - temp);
 }
